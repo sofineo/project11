@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --font-family-primary: 'Roboto', sans-serif;
+
+  --body-bg-light-mode: #FFFFFF;
+  --span-color-light-mode: #323238;
+  --svg-color-light-mode: #323238;
+  --svg-color-selected-light-mode: #FFFFFF;
+  --card-bg-light-mode: #E1E1E6;
+  --card-bg-selected-light-mode: #02799D;
+  --range-color-light-mode: #323238;
+  --range-color-selected-light-mode: #FFFFFF;
+
+  --body-bg-dark-mode: #121214;
+  --span-color-dark-mode: #FFFFFF;
+  --svg-color-dark-mode: #C4C4CC;
+  --svg-color-selected-dark-mode: #FFFFFF;
+  --card-bg-dark-mode: #29292E;
+  --card-bg-selected-dark-mode: #0A3442;
+  --range-color-dark-mode: #FFFFFF;
+  --range-color-selected-dark-mode: #FFFFFF;
+}
+
+[data-theme="dark"] {
+  --body-bg: var(--body-bg-dark-mode);
+  --span-color: var(--span-color-dark-mode);
+  --svg-color: var(--svg-color-dark-mode);
+  --svg-color-selected: var(--svg-color-selected-dark-mode);
+  --card-bg: var(--card-bg-dark-mode);
+  --card-bg-selected: var(--card-bg-selected-dark-mode);
+  --range-color: var(--range-color-dark-mode);
+  --range-color-selected: var(--range-color-selected-dark-mode);
+}
+
+[data-theme="light"] {
+ --body-bg: var(--body-bg-light-mode);
+ --span-color: var(--span-color-light-mode);
+ --svg-color: var(--svg-color-light-mode);
+ --svg-color-selected: var(--svg-color-selected-light-mode);
+ --card-bg: var(--card-bg-light-mode);
+ --card-bg-selected: var(--card-bg-selected-light-mode);
+ --range-color: var(--range-color-light-mode);
+ --range-color-selected: var(--range-color-selected-light-mode);
+}
+
+.hide {
+  display: none;
+}
+
+body {
+  background-color: var(--body-bg);
+  display: grid;
+  grid-template-rows: 10% 80%;
+  height: 100vh;
+  width: 100vw
+}
+
+.mode {
+  justify-self: end;
+  align-self: center;
+  margin: 5rem 5rem 0 0;
+}
+
+.mode button {
+  border: none;
+  background: none;
+}
+
+.container {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: clamp(5rem, 1rem + 10vw, 19.2rem);
+  max-width: 821px;
+}
+
+.timer {
+  align-self: center;
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.7rem;
+}
+
+.time span {
+  font-family: var(--font-family-primary);
+  font-size: clamp(5rem, 5rem + 10vw, 12.617rem);
+  line-height: clamp(5.5rem, 5rem +10vw, 14.8rem);
+  color: var(--span-color);
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+button svg path {
+  fill: var(--svg-color);
+}
+
+.controlButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controlButtons button:hover, .card:hover {
+  scale: 1.1;
+}
+
+.sounds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem;
+  gap: 3.2rem;
+  max-width: 13.8rem;
+  cursor: pointer;
+}
+
+.selected {
+  background: var(--card-bg-selected);
+}
+
+.selected svg path  {
+  fill: var(--svg-color-selected);
+}
+
+.slideContainer {
+  display: grid;
+}
+
+.slider {
+  appearance: none;
+  border-radius: 999px;
+  height: .4rem;
+  align-self: center;
+  background: var(--range-color);
+  cursor: pointer;
+  width: 100%;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: var(--range-color);
+  border-radius: 999px;
+}
+
+.selected .slider, .selected .slider::-webkit-slider-thumb{
+  background-color: var(--range-color-selected);
+}
+
+@media (max-width: 768px) {
+  body {
+    display: block;
+  }
+
+  .mode {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    margin: 0;
+  }
+
+  .container {
+    flex-direction: column;
+    margin: 65px auto 0;
+    gap: 2rem;
+  }
+
+  .timer {
+    max-width: 31.2rem;
+    margin: 0 auto;
+  }
+
+  .time {
+    margin: 0;
+  }
+
+  .sounds {
+    align-self: center;
+    gap: 1rem;
+  }
+
+  .card {
+    margin: 0 auto;
+    padding: 1.4rem;
+    gap: 2.2rem;
+    max-width: 10.8rem;
+  }
+}
+ 
