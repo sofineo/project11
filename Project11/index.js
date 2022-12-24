@@ -175,10 +175,6 @@ function stopCountDown() {
   clearTimeout(timer)
 }
 
-volumeFlorest.oninput = ()=>{
-
-}
-
 volumeFlorest.addEventListener('mousemove', ()=>{
   let volume = volumeFlorest.value / 100
   soundFlorest.volume = volume
